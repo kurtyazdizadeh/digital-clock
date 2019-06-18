@@ -4,9 +4,6 @@ function getTime(){
 		minute = time.getMinutes(),
 		second = time.getSeconds();
 
-		if (hour < 10) {
-			hour = "0"+ hour;
-		}
 		if (minute < 10) {
 			minute = "0"+ minute;
 		}
@@ -15,8 +12,11 @@ function getTime(){
 		}
 
 		if (hour > 12) {
-			hour = "0"+(hour - 12);
+			hour = hour - 12;
 			document.getElementById("second").innerHTML = second +" PM";
+			if (hour < 10) {
+				hour = "0"+ hour;
+			}
 		} else {
 			document.getElementById("second").innerHTML = second +" AM";
 		}
